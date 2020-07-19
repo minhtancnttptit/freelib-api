@@ -13,6 +13,11 @@ public class AccountController {
     @Autowired
     private AccountRepository accountRepository;
 
+    @GetMapping("/")
+    public String home(){
+        return "API";
+    }
+
     @GetMapping("/account")
     public List<Account> getAccounts() {
         return accountRepository.findAll();
