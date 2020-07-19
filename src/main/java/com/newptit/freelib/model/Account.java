@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "account_")
+@Table(name = "ACCOUNT_")
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
