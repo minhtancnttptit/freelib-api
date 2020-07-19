@@ -21,6 +21,6 @@ public class AccountController {
     @PostMapping("/account")
     public String Register(@RequestBody Account account) {
         accountRepository.save(account);
-        return account.
+        return account.getId();
     }
 }
