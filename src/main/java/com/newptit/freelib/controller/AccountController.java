@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "https://freelib.minhtancnttptit.vercel.app/")
+@CrossOrigin(origins = "https://freelib.vercel.app")
 @RequestMapping("/api")
 public class AccountController {
     @Autowired
