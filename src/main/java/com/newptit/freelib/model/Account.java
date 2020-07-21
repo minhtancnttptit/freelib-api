@@ -1,5 +1,6 @@
 package com.newptit.freelib.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -8,15 +9,26 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "ACCOUNT_")
+@Table(name = "account_")
 public class Account {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
 
     private String username;
+
+    @JsonIgnore
     private String password;
     private String role;
+
+    public Account() {
+    }
+
+    public Account(String id, String username, String password, String role) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
 
     public String getId() {
         return id;
