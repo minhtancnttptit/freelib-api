@@ -21,9 +21,9 @@ public class Resource {
     public Resource() {
     }
 
-    public Resource(String id, String idPublisher, String type, String title, String cover, String category, String description, String link) {
+    public Resource(String id, String idpublisher, String type, String title, String cover, String category, String description, String link) {
         this.id = id;
-        this.idpublisher = idPublisher;
+        this.idpublisher = idpublisher;
         this.type = type;
         this.title = title;
         this.cover = cover;
@@ -32,20 +32,20 @@ public class Resource {
         this.link = link;
     }
 
-    public String getIdpublisher() {
-        return idpublisher;
-    }
-
-    public void setIdpublisher(String idPublisher) {
-        this.idpublisher = idPublisher;
-    }
-
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getIdpublisher() {
+        return idpublisher;
+    }
+
+    public void setIdpublisher(String idpublisher) {
+        this.idpublisher = idpublisher;
     }
 
     public String getType() {
