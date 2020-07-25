@@ -3,6 +3,7 @@ package com.newptit.freelib.controller;
 import com.newptit.freelib.model.*;
 import com.newptit.freelib.repository.AccountRepository;
 import com.newptit.freelib.repository.AdminRepository;
+import com.newptit.freelib.repository.CommentRepository;
 import com.newptit.freelib.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,9 +12,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-
+@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 @RestController
-@CrossOrigin(origins = "https://freelib.vercel.app")
 @RequestMapping("/api")
 public class AccountController {
     @Autowired
@@ -35,11 +35,18 @@ public class AccountController {
         return accountRepository.findAll();
     }
 
+    @GetMapping("/user")
+    public List<User> getUsers() {
+        return userRepository.findAll();
+    }
+
     @PostMapping("/account")
     public String Register(@RequestBody Account account) {
         accountRepository.save(account);
         return account.getId();
     }
+
+
 
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody LoginForm loginForm) {
@@ -74,6 +81,7 @@ public class AccountController {
         }
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
+
 
 //    @PostMapping("/register")
 

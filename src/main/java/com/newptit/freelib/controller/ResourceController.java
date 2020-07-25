@@ -8,13 +8,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "https://freelib.vercel.app")
 public class ResourceController {
     @Autowired
     private ResourceRepository resourceRepository;
+
+    @GetMapping("/resources")
+    public ResponseEntity resources() {
+        List<Resource> resources = resourceRepository.findAll();
+        return new ResponseEntity(resources, HttpStatus.OK);    
+    }
 
     @PostMapping("/upload")
     public ResponseEntity upload(@RequestBody Resource resource) {

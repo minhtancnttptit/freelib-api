@@ -9,9 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 @RestController
-@CrossOrigin(origins = "https://freelib.vercel.app")
 @RequestMapping("/api")
 public class AdminController {
     @Autowired

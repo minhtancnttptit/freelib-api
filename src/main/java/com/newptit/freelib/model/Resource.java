@@ -10,6 +10,7 @@ public class Resource {
     @Id
     private String id;
 
+    private String idpublisher;
     private String type;
     private String title;
     private String cover;
@@ -20,14 +21,23 @@ public class Resource {
     public Resource() {
     }
 
-    public Resource(String id, String type, String title, String cover, String category, String description, String link) {
+    public Resource(String id, String idPublisher, String type, String title, String cover, String category, String description, String link) {
         this.id = id;
+        this.idpublisher = idPublisher;
         this.type = type;
         this.title = title;
         this.cover = cover;
         this.category = category;
         this.description = description;
         this.link = link;
+    }
+
+    public String getIdpublisher() {
+        return idpublisher;
+    }
+
+    public void setIdpublisher(String idPublisher) {
+        this.idpublisher = idPublisher;
     }
 
     public String getId() {
