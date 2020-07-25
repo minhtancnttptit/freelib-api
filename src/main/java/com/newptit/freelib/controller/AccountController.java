@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-@CrossOrigin(origins = "https://freelib.vercel.app", maxAge = 3600)
+@CrossOrigin(origins = "https://freelib.vercel.app/", maxAge = 3600)
 @RestController
 @RequestMapping("/api")
 public class AccountController {
@@ -20,10 +20,11 @@ public class AccountController {
     private AccountRepository accountRepository;
 
     @Autowired
-    private AdminRepository adminRepository;
+    private UserRepository userRepository;
 
     @Autowired
-    private UserRepository userRepository;
+    private AdminRepository adminRepository;
+
 
     @GetMapping("/")
     public String home() {
@@ -35,10 +36,7 @@ public class AccountController {
         return accountRepository.findAll();
     }
 
-    @GetMapping("/user")
-    public List<User> getUsers() {
-        return userRepository.findAll();
-    }
+
 
     @PostMapping("/account")
     public String Register(@RequestBody Account account) {
@@ -64,7 +62,6 @@ public class AccountController {
                     return new ResponseEntity(user, HttpStatus.OK);
                 }
             }
-
         }
         return new ResponseEntity<>(null, HttpStatus.UNAUTHORIZED);
     }
