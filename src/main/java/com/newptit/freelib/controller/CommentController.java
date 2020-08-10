@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "https://freelib.vercel.app", maxAge = 3600)
+@CrossOrigin(origins = "http://newptit.ga", maxAge = 3600)
 @RestController
 @RequestMapping("/api")
 public class CommentController {
